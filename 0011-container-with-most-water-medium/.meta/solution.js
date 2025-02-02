@@ -16,6 +16,7 @@ function maxArea(heights) {
   }
   return maxArea2;
 }
+
 export {
   maxArea as default
 };

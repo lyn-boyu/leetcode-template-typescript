@@ -1,19 +1,33 @@
 /**
- * Container With Most Water - Medium
- * https://leetcode.com/problems/container-with-most-water/
- * Topics: Array, Two Pointers, Greedy
+ * Max Water Container - Medium
  * 
- * Problem Description:
- * You are given an integer array height of length n. There are n vertical lines drawn such that 
- * the two endpoints of the ith line are (i, 0) and (i, height[i]). Find two lines that together 
- * with the x-axis form a container, such that the container contains the most water.
+ * https://neetcode.io/problems/max-water-container
  * 
- * Return the maximum amount of water a container can store.
+ * You are given an integer array `heights` where `heights[i]` represents the height of the ith bar.
  * 
- * @param height - Array of heights representing vertical lines
- * @returns The maximum amount of water that can be contained
+ * You may choose any two bars to form a container. Return the maximum amount of water a container can store.
+ * 
+ * Example 1:
+ * Input: height = [1,7,2,5,4,7,3,6]
+ * Output: 36
+ * 
+ * Example 2:
+ * Input: height = [2,2,2]
+ * Output: 4
+ * 
+ * Constraints:
+ * - 2 <= height.length <= 1000
+ * - 0 <= height[i] <= 1000
+ * 
+ * Solution:
+ * - Use the two-pointer technique.
+ * - Start with two pointers at the beginning and end of the array.
+ * - Calculate the area for each pair of pointers and update the maximum.
+ * - Move the pointer pointing to the shorter bar to potentially find a taller bar.
  */
+
 export default function maxArea(heights: number[]): number {
+
     let maxArea = -1
     let left = 0
     let right = heights.length - 1
