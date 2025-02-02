@@ -1,0 +1,14 @@
+{
+  "debug": false,
+  "retention": {
+    "days": 7,
+    "enabled": true
+  },
+  "levels": {
+    "info": true,
+    "success": true,
+    "error": true,
+    "warn": true,
+    "debug": false
+  }
+}

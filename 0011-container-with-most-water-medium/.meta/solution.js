@@ -1,3 +1,4 @@
+// @bun
 // 0011-container-with-most-water-medium/.meta/solution.ts
 function maxArea(heights) {
   let maxArea2 = -1;

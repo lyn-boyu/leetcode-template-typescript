@@ -1,0 +1,19 @@
+{
+  "name": "leetcode-template-typescript",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "bun-types": "latest",
+    "typescript": "^5.0.0"
+  },
+  "scripts": {
+    "submit": "bun run scripts/cli.ts",
+    "test": "bun test"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "chalk": "^5.4.1"
+  }
+}
