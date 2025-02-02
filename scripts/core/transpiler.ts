@@ -8,12 +8,14 @@ async function transpileFile(srcPath: string, destPath: string): Promise<void> {
   try {
     await Bun.build({
       entrypoints: [srcPath],
-      outfile: destPath,
+      outdir: destPath,
       external: ["bun:test"], // Don't bundle bun:test module
       target: "bun",
       format: "esm",
     });
-    logger.success(`Transpiled: ${srcPath} -> ${destPath}`);
+    logger.success(`✅ Transpiled: `);
+    logger.info(`- file:   ${srcPath}`)
+    logger.info(`- outdir: ${destPath}`)
   } catch (error) {
     throw new Error(`Failed to transpile ${srcPath}: ${error}`);
   }
@@ -26,15 +28,15 @@ export async function transpileFiles(problemDir: string): Promise<void> {
   const files = [
     {
       src: join(problemDir, 'index.ts'),
-      dest: join(problemDir, 'index.js')
+      dest: join(problemDir)
     },
     {
       src: join(problemDir, 'index.test.ts'),
-      dest: join(problemDir, 'index.test.js')
+      dest: join(problemDir)
     },
     {
       src: join(problemDir, '.meta', 'solution.ts'),
-      dest: join(problemDir, '.meta', 'solution.js')
+      dest: join(problemDir, '.meta',)
     }
   ];
 

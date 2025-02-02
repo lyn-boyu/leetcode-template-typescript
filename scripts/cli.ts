@@ -11,50 +11,50 @@ async function main() {
     // 解析命令行参数
     const { problemNumber, dryRun } = parseArgs(process.argv.slice(2));
     const paddedNumber = problemNumber.toString().padStart(4, '0');
-    
+
     // 验证并获取问题目录
-    logger.info(`Looking for problem ${paddedNumber}...`);
+    logger.info(`🔍 Looking for problem ${paddedNumber}...`);
     const problemDir = await validateProblemDir(paddedNumber);
-    logger.success(`Found problem directory: ${problemDir}`);
-    
+    logger.success(`✅ Found problem directory: ${problemDir}`);
+
     // 运行测试
-    logger.info('Running tests...');
+    logger.info('🚀 Running tests...');
     const testsPassed = await runTests(problemDir);
     if (!testsPassed) {
-      logger.error('Tests failed. Please fix the failing tests before proceeding.');
+      logger.error('❌ Tests failed. Please fix the failing tests before proceeding.');
       process.exit(1);
     }
-    logger.success('All tests passed!');
+    logger.success('🎉 All tests passed!');
 
     // 转译文件
-    logger.info('Transpiling files...');
+    logger.info('🔄 Transpiling files...');
     try {
       await transpileFiles(problemDir);
-      logger.success('Files transpiled successfully!');
+      logger.success('✅ Files transpiled successfully!');
     } catch (error) {
-      logger.error('Transpilation failed. Please check the error messages above.');
+      logger.error('❌ Transpilation failed. Please check the error messages above.');
       process.exit(1);
     }
 
     // 提交更改
     if (!dryRun) {
-      logger.info('Committing changes...');
+      logger.info('💾 Committing changes...');
       try {
         await commitChanges(problemDir);
-        logger.success('Changes committed successfully!');
+        logger.success('✅ Changes committed successfully!');
       } catch (error) {
-        logger.error('Git commit failed. Please check the error messages above.');
+        logger.error('❌ Git commit failed. Please check the error messages above.');
         process.exit(1);
       }
     } else {
-      logger.info('Dry run mode - skipping git commit');
+      logger.info('⚠️ Dry run mode - skipping git commit');
     }
 
   } catch (error) {
     if (error instanceof Error) {
-      logger.error(error.message);
+      logger.error(`❌ ${error.message}`);
     } else {
-      logger.error('An unexpected error occurred:', error);
+      logger.error('❌ An unexpected error occurred:', error);
     }
     process.exit(1);
   }
