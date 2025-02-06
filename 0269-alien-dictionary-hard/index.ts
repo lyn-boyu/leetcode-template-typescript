@@ -38,26 +38,8 @@ Constraints:
 Note: Do not include any solution details in these comments.
 */
 
-/*
-  We divide the solution into 3 major steps:
-  
-  Step 1: Build the Graph and Compute In-Degrees
-    - Initialize the graph and in-degree map with all unique characters.
-    - For every pair of adjacent words, find the first differing character and add a directed edge.
-    - Also check for the prefix rule: if word2 is a prefix of word1, the order is invalid.
-  
-  Step 2: Topological Sort (Using BFS / Kahn's Algorithm)
-    - Use a queue to process characters with in-degree 0.
-    - Remove characters from the queue and reduce the in-degrees of their neighbors.
-    - Append characters to the order as they are processed.
-  
-  Step 3: Verify the Topological Order and Return the Result
-    - If the resulting order contains all unique characters, return the order.
-    - Otherwise, return an empty string (indicating a cycle or invalid order).
-*/
-
 function alienOrder(words: string[]): string {
-    return ''
+  return ''
 }
 
 // Export the function for testing
