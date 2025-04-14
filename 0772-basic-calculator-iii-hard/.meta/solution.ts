@@ -10,7 +10,7 @@
  * Space Complexity:   O(n) — Stack and recursion depth can reach up to n.
  */
 
-function calculate(s: string): number {
+export function calculate(s: string): number {
     let i = 0; // Global pointer to scan the input string
 
     function helper(): number {
